@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'signup_screen.dart';
+import 'home_screen.dart';
+import '../models/authentication.dart';
 
 class LoginScreen extends StatefulWidget {
   static const routeName = '/login';
@@ -12,8 +15,50 @@ class _LoginScreenState extends State<LoginScreen> {
 
   final GlobalKey<FormState> _formkey = GlobalKey();
 
-  void _submit()
+  Map<String, String> _authData = {
+    'email' : '',
+    'password' : ''
+  };
+
+  void _showErrorDialog(String msg)
   {
+    showDialog(
+        context: context,
+      builder: (ctx) => AlertDialog(
+        title: Text('An Error Occured!'),
+        content: Text(msg),
+        actions: <Widget>[
+          FlatButton(
+              onPressed: (){
+                Navigator.of(ctx).pop();
+              },
+              child: Text('Okay')
+          )
+        ],
+      )
+    );
+  }
+
+  Future<void> _submit() async
+  {
+    if(!_formkey.currentState.validate())
+      {
+        return;
+      }
+    _formkey.currentState.save();
+
+    try{
+      await Provider.of<Authentication>(context, listen: false).logIn(
+          _authData['email'],
+          _authData['password']
+      );
+      Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
+
+    } catch (error)
+    {
+      var errorMessage = 'Authentication Failed! Please try again later.';
+      _showErrorDialog(errorMessage);
+    }
 
   }
   @override
@@ -77,7 +122,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           },
                           onSaved: (value)
                           {
-
+                              _authData['email'] = value;
                           },
                         ),
 
@@ -95,7 +140,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           },
                           onSaved: (value)
                           {
-
+                            _authData['password'] = value;
                           },
                         ),
                         SizedBox(

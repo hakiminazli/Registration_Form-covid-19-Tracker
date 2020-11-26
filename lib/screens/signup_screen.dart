@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../models/authentication.dart';
+import 'home_screen.dart';
 import 'login_screen.dart';
 
 class SignupScreen extends StatefulWidget {
@@ -13,8 +16,50 @@ class _SignupScreenState extends State<SignupScreen> {
   final GlobalKey<FormState> _formkey = GlobalKey();
   TextEditingController _passwordController = new TextEditingController();
 
-  void _submit()
+  Map<String, String> _authData = {
+    'email' : '',
+    'password' : ''
+  };
+
+  void _showErrorDialog(String msg)
   {
+    showDialog(
+        context: context,
+        builder: (ctx) => AlertDialog(
+          title: Text('An Error Occured!'),
+          content: Text(msg),
+          actions: <Widget>[
+            FlatButton(
+                onPressed: (){
+                  Navigator.of(ctx).pop();
+                },
+                child: Text('Okay')
+            )
+          ],
+        )
+    );
+  }
+
+  Future<void> _submit() async
+  {
+    if(!_formkey.currentState.validate())
+      {
+        return;
+      }
+    _formkey.currentState.save();
+
+    try{
+      await Provider.of<Authentication>(context, listen: false).signUp(
+          _authData['email'],
+          _authData['password']
+      );
+      Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
+
+    } catch(error)
+    {
+      var errorMessage = 'Authentication Failed! Please try again later.';
+      _showErrorDialog(errorMessage);
+    }
 
   }
   @override
@@ -80,7 +125,7 @@ class _SignupScreenState extends State<SignupScreen> {
                           },
                           onSaved: (value)
                           {
-
+                            _authData['email'] = value;
                           },
                         ),
 
@@ -99,7 +144,7 @@ class _SignupScreenState extends State<SignupScreen> {
                           },
                           onSaved: (value)
                           {
-
+                            _authData['password'] = value;
                           },
                         ),
 
