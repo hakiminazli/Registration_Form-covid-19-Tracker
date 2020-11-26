@@ -10,11 +10,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Login App',
+      title: 'COVID-19 Tracker',
       theme: ThemeData(
         primaryColor: Colors.blue,
       ),
-      home: LoginScreen(),
+      home: SignupScreen(),
+      
       routes: {
         SignupScreen.routeName: (ctx) => SignupScreen(),
         LoginScreen.routeName: (ctx) => LoginScreen(),
