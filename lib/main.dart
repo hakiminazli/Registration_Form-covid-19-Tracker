@@ -6,6 +6,7 @@ import 'screens/login_screen.dart';
 import 'screens/signup_screen.dart';
 import 'models/authentication.dart';
 
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'COVID-19 Tracker',
         theme: ThemeData(
-          primaryColor: Colors.blue,
+          primaryColor: Colors.blue[800],
         ),
         home: SignupScreen(),
         
