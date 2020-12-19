@@ -49,17 +49,18 @@ class SettingPage extends StatelessWidget {
                   tapCard(
                     () {
                       LaunchUrlUtil.launchUrl(
-                          'https://dribbble.com/shots/11317039-Smart-Home-App');
+                          'https://gumroad.com/iqfareez');
                     },
                     ListTile(
-                      leading: FaIcon(FontAwesomeIcons.dribbble,
+                      leading: FaIcon(FontAwesomeIcons.codeBranch,
                           color: Color(0xFFEA4c89)),
                       title: Text(
                         'Inspiration',
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
                       subtitle:
-                          Text('dribbble.com/shots/11317039-Smart-Home-App'),
+                          Text('https://gumroad.com/iqfareez'),
+
                     ),
                   ),
                 ],
