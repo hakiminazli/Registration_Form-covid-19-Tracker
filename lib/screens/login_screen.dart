@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../home.dart';
 import 'signup_screen.dart';
-import 'home_screen.dart';
+import 'package:register_covid19app/home.dart';
 import '../models/authentication.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -52,7 +53,7 @@ class _LoginScreenState extends State<LoginScreen> {
           _authData['email'],
           _authData['password']
       );
-      Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
+      Navigator.of(context).pushReplacementNamed(Home.routeName);
 
     } catch (error)
     {
