@@ -46,8 +46,8 @@ class _HomeState extends State<Home> {
               label: 'User',
             ),
             BottomNavigationBarItem(
-              icon: FaIcon(FontAwesomeIcons.bolt),
-              label: 'Power',
+              icon: FaIcon(FontAwesomeIcons.folder),
+              label: 'Menu',
             ),
             BottomNavigationBarItem(
               icon: FaIcon(FontAwesomeIcons.cog),

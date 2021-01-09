@@ -104,6 +104,7 @@ class ControlCenter extends StatelessWidget {
             title: room.roomDataList[index].title,
             //numberOfDevices: room.roomDataList[index].numberOfDevices,
             isActive: room.roomDataList[index].isActive);
+
       },
     );
   }
@@ -139,7 +140,7 @@ class _ControlCenterItemState extends State<ControlCenterItem> {
       child: Container(
         decoration: BoxDecoration(
           border:
-              !widget.isActive ? Border.all(color: Colors.grey.shade300) : null,
+              !widget.isActive ? Border.all(color: Colors.blue) : null,
           borderRadius: BorderRadius.circular(16),
           color: widget.isActive ? primaryColour : Colors.transparent,
         ),

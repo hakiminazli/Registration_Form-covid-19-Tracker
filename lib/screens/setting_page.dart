@@ -32,7 +32,7 @@ class SettingPage extends StatelessWidget {
                   ),
                   tapCard(
                     () {
-                      LaunchUrlUtil.launchUrl('https://twitter.com/iqfareez2');
+                      LaunchUrlUtil.launchUrl('https://twitter.com/hakimin_azli');
                     },
                     ListTile(
                       leading: FaIcon(
