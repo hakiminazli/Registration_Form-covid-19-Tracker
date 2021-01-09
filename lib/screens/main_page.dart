@@ -82,7 +82,7 @@ class ProfileImage extends StatelessWidget {
 }
 
 
-// CONTROL CENTER (BIG ORANGE BUTTON)
+// CONTROL CENTER (BIG BLUE BUTTON)
 
 class ControlCenter extends StatelessWidget {
   final Room room = Room();
