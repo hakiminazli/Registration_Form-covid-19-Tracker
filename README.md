@@ -1,6 +1,6 @@
 # register_covid19app
 
-Registration Form for COVID-19 Tracker
+ COVID-19 Tracker
 
 ## Getting Started
 
