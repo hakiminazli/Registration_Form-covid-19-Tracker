@@ -100,17 +100,46 @@ class ControlCenter extends StatelessWidget {
           crossAxisSpacing: axisSpacing,
           mainAxisSpacing: axisSpacing),
       itemBuilder: (BuildContext context, int index) {
-        return ControlCenterItem(
-            icon: room.roomDataList[index].icon,
-            title: room.roomDataList[index].title,
-            //numberOfDevices: room.roomDataList[index].numberOfDevices,
-            isActive: room.roomDataList[index].isActive);
+        return Card(
+          shape: RoundedRectangleBorder(
+
+            borderRadius: BorderRadius.circular(8),
+
+          ),
+          color: Colors.lightBlueAccent[100],
+          child: InkWell(
+            splashColor: primaryColour.withAlpha(45),
+            highlightColor: primaryColour.withAlpha(22),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) {
+                  return PowerControl(room.roomDataList[index].title);
+                }),
+              );
+            },
+            child: ListTile(
+              leading: FaIcon(
+                room.roomDataList[index].icon,
+                color: Colors.black,
+                size: 30,
+              ),
+              title: Text(
+
+                room.roomDataList[index].title,
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: Colors.black),
+
+              ),
+            ),
+          ),
+        );
 
       },
     );
   }
 }
-
+/*
 // ignore: must_be_immutable
 class ControlCenterItem extends StatefulWidget {
   ControlCenterItem(
@@ -126,8 +155,8 @@ class ControlCenterItem extends StatefulWidget {
 
   @override
   _ControlCenterItemState createState() => _ControlCenterItemState();
-}
-
+} */
+/*
 class _ControlCenterItemState extends State<ControlCenterItem> {
   @override
   Widget build(BuildContext context) {
@@ -135,6 +164,7 @@ class _ControlCenterItemState extends State<ControlCenterItem> {
       onTap: () {
         setState(() {
           widget.isActive = !widget.isActive;
+
           //toggle on / off of control center
         });
       },
@@ -190,17 +220,33 @@ class _ControlCenterItemState extends State<ControlCenterItem> {
     );
   }
 }
+*/
 
+//POWER PAGE CLASS
 class PowerPage extends StatelessWidget {
   final Room room = Room();
+ // final Room room = Room();
+  final double axisSpacing = 26;
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      padding: EdgeInsets.all(16),
+    return GridView.builder(
+      shrinkWrap: true,
+      padding: EdgeInsets.all(axisSpacing),
       itemCount: room.roomDataList.length,
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: MediaQuery.of(context).size.width > 600
+              ? 4
+              : 2, //layour rendered quite differently on different screen sizes
+          crossAxisSpacing: axisSpacing,
+          mainAxisSpacing: axisSpacing),
       itemBuilder: (BuildContext context, int index) {
         return Card(
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+          shape: RoundedRectangleBorder(
+
+              borderRadius: BorderRadius.circular(8),
+
+          ),
+          color: Colors.white60,
           child: InkWell(
             splashColor: primaryColour.withAlpha(45),
             highlightColor: primaryColour.withAlpha(22),
@@ -215,9 +261,16 @@ class PowerPage extends StatelessWidget {
             child: ListTile(
               leading: FaIcon(
                 room.roomDataList[index].icon,
-                color: accentColour,
+                color: primaryColour,
+                size: 30,
               ),
-              title: Text(room.roomDataList[index].title),
+              title: Text(
+
+                  room.roomDataList[index].title,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                  
+              ),
             ),
           ),
         );

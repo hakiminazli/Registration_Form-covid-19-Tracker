@@ -24,8 +24,9 @@ class _HomeState extends State<Home> {
     return Scaffold(
       bottomNavigationBar: ClipRRect(
         borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(30.0), topRight: Radius.circular(30.0)),
+            topLeft: Radius.circular(10.0), topRight: Radius.circular(10.0)),
         child: BottomNavigationBar(
+          backgroundColor: primaryColour,
           type: BottomNavigationBarType.fixed,
           showSelectedLabels: false,
           showUnselectedLabels: false,
