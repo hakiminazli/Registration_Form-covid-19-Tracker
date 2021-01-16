@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:register_covid19app/CONSTANTS.dart';
 import 'package:register_covid19app/screens/main_page.dart';
-import 'package:register_covid19app/screens/setting_page.dart';
-import 'package:register_covid19app/screens/user_page.dart';
+
 
 class Home extends StatefulWidget {
   @override
@@ -46,7 +45,7 @@ class _HomeState extends State<Home> {
               label: 'User',
             ),
             BottomNavigationBarItem(
-              icon: FaIcon(FontAwesomeIcons.folder),
+              icon: FaIcon(FontAwesomeIcons.bell),
               label: 'Menu',
             ),
             BottomNavigationBarItem(

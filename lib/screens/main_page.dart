@@ -4,6 +4,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:register_covid19app/CONSTANTS.dart';
 import 'package:register_covid19app/database/room_data.dart';
 import 'package:register_covid19app/screens/power_control_page.dart';
+import 'package:register_covid19app/Utils/launch_url_util.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class MainPage extends StatefulWidget {
   @override
@@ -139,88 +141,19 @@ class ControlCenter extends StatelessWidget {
     );
   }
 }
-/*
-// ignore: must_be_immutable
-class ControlCenterItem extends StatefulWidget {
-  ControlCenterItem(
-      {@required this.icon,
-      @required this.title,
-      //@required this.numberOfDevices,
-      @required this.isActive});
 
-  final String title;
- // final int numberOfDevices;
-  final IconData icon;
-  bool isActive;
-
-  @override
-  _ControlCenterItemState createState() => _ControlCenterItemState();
-} */
-/*
-class _ControlCenterItemState extends State<ControlCenterItem> {
+//USER CLASS
+class UserPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        setState(() {
-          widget.isActive = !widget.isActive;
-
-          //toggle on / off of control center
-        });
-      },
-      child: Container(
-        decoration: BoxDecoration(
-          border:
-              !widget.isActive ? Border.all(color: Colors.blue) : null,
-          borderRadius: BorderRadius.circular(16),
-          color: widget.isActive ? primaryColour : Colors.transparent,
-        ),
-        padding: EdgeInsets.all(18),
-        child: Column(
-          children: [
-            Expanded(
-              flex: 3,
-              child: Align(
-                alignment: Alignment.topLeft,
-                child: Container(
-                  child: FaIcon(
-                    widget.icon,
-                    semanticLabel: widget.title,
-                    size: 28,
-                    color: widget.isActive ? Colors.white : primaryColour,
-                  ),
-                ),
-              ),
-            ),
-            Expanded(
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  widget.title,
-                  style: TextStyle(
-                      color: widget.isActive ? Colors.white : Colors.black,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16),
-                ),
-              ),
-            ),
-            /*
-            Expanded(
-              child: Align(
-                alignment: Alignment.topLeft,
-                child: Text(
-                  '${widget.numberOfDevices} device',
-                  style: TextStyle(color: Colors.black.withAlpha(100)),
-                ),
-              ),
-            ),*/
-          ],
-        ),
+    return Container(
+      child: Center(
+        child: Text('User page'),
       ),
     );
   }
 }
-*/
+
 
 //POWER PAGE CLASS
 class PowerPage extends StatelessWidget {
@@ -277,4 +210,91 @@ class PowerPage extends StatelessWidget {
       },
     );
   }
+}
+
+//SETTING PAGE CLASS
+class SettingPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(12),
+      child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Expanded(
+              child: ListView(
+                children: [
+                  tapCard(
+                        () {
+                      LaunchUrlUtil.launchUrl('https://gum.co/SxEWQ');
+                    },
+                    ListTile(
+                      leading:
+                      FaIcon(FontAwesomeIcons.code, color: Colors.black),
+                      title: Text(
+                        'Get the source code',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      subtitle: Text('Name your own price @ gum.co/SxEWQ'),
+                    ),
+                  ),
+                  tapCard(
+                        () {
+                      LaunchUrlUtil.launchUrl('https://twitter.com/hakimin_azli');
+                    },
+                    ListTile(
+                      leading: FaIcon(
+                        FontAwesomeIcons.twitter,
+                        color: Color(0xFF1DA1F2),
+                      ),
+                      title: Text(
+                        'Follow me',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      subtitle: Text('https://twitter.com/hakimin_azli'),
+                    ),
+                  ),
+                  tapCard(
+                        () {
+                      LaunchUrlUtil.launchUrl(
+                          'https://gumroad.com/iqfareez');
+                    },
+                    ListTile(
+                      leading: FaIcon(FontAwesomeIcons.codeBranch,
+                          color: Color(0xFFEA4c89)),
+                      title: Text(
+                        'Inspiration',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      subtitle:
+                      Text('https://gumroad.com/iqfareez'),
+
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: SvgPicture.asset('images/undraw_source_code_xx2e.svg'),
+              ),
+            )
+          ]),
+    );
+  }
+}
+
+Widget tapCard(Function _onTap, Widget _child) {
+  return Card(
+    child: InkWell(
+      splashColor: accentColour.withAlpha(30),
+      onTap: _onTap,
+      child: Padding(
+        padding: const EdgeInsets.all(18.0),
+        child: _child,
+      ),
+    ),
+  );
 }
