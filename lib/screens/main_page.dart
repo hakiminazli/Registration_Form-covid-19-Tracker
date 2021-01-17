@@ -131,7 +131,7 @@ class ControlCenter extends StatelessWidget {
                       return CheckUp();
                       break;
                     case 3:
-                      return Maps();
+                      return MyLocation();
                       break;
                     default:
                   }
