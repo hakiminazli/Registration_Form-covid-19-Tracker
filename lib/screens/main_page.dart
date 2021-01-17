@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:register_covid19app/CONSTANTS.dart';
 import 'package:register_covid19app/database/room_data.dart';
-import 'package:register_covid19app/screens/power_control_page.dart';
+import 'package:register_covid19app/screens/new%20file.dart';
 import 'package:register_covid19app/Utils/launch_url_util.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -116,7 +116,7 @@ class ControlCenter extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) {
-                  return PowerControl(room.roomDataList[index].title);
+                  return New_Page();
                 }),
               );
             },
@@ -187,7 +187,7 @@ class PowerPage extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) {
-                  return PowerControl(room.roomDataList[index].title);
+                  return New_Page();
                 }),
               );
             },
