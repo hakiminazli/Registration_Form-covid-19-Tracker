@@ -6,6 +6,10 @@ import 'package:register_covid19app/database/room_data.dart';
 import 'package:register_covid19app/screens/new%20file.dart';
 import 'package:register_covid19app/Utils/launch_url_util.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:register_covid19app/screens/news.dart';
+import 'package:register_covid19app/screens/travel_history.dart';
+import 'package:register_covid19app/screens/checkup.dart';
+import 'package:register_covid19app/screens/maps.dart';
 
 class MainPage extends StatefulWidget {
   @override
@@ -116,6 +120,21 @@ class ControlCenter extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) {
+                  switch (index){
+                    case 0:
+                      return News();
+                      break;
+                    case 1:
+                      return Travel();
+                      break;
+                    case 2:
+                      return CheckUp();
+                      break;
+                    case 3:
+                      return Maps();
+                      break;
+                    default:
+                  }
                   return New_Page();
                 }),
               );

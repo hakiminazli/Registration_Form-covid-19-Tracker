@@ -4,6 +4,7 @@ import 'package:register_covid19app/CONSTANTS.dart';
 import 'package:register_covid19app/screens/main_page.dart';
 
 
+
 class Home extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
@@ -13,9 +14,10 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   int _currentIndex = 0;
   final List<Widget> _children = [
-    MainPage(), // combined with PowerPage()
+    //combined into one code
+    MainPage(),
     UserPage(),
-    PowerPage(), // combined code into one main_page.dart
+    PowerPage(),
     SettingPage()
   ];
   @override
