@@ -1,15 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:provider/provider.dart';
 import 'package:register_covid19app/CONSTANTS.dart';
 import 'package:register_covid19app/database/room_data.dart';
 import 'package:register_covid19app/screens/new%20file.dart';
 import 'package:register_covid19app/Utils/launch_url_util.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:register_covid19app/screens/news.dart';
 import 'package:register_covid19app/screens/travel_history.dart';
 import 'package:register_covid19app/screens/checkup.dart';
 import 'package:register_covid19app/screens/maps.dart';
+import 'package:register_covid19app/pages/newsListPage.dart';
+import 'package:register_covid19app/viewmodels/newsArticlesListViewModel.dart';
 
 class MainPage extends StatefulWidget {
   @override
@@ -122,7 +124,8 @@ class ControlCenter extends StatelessWidget {
                 MaterialPageRoute(builder: (context) {
                   switch (index){
                     case 0:
-                      return News();
+                      return ChangeNotifierProvider(
+                          builder: (_) => NewsArticleListViewModel(), child: NewsListPage());
                       break;
                     case 1:
                       return Travel();
