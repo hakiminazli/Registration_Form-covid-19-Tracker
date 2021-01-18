@@ -135,7 +135,7 @@ class ControlCenter extends StatelessWidget {
                       break;
                     default:
                   }
-                  return New_Page();
+                  return NewPage();
                 }),
               );
             },
@@ -206,7 +206,7 @@ class PowerPage extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) {
-                  return New_Page();
+                  return NewPage();
                 }),
               );
             },

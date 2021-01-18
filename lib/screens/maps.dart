@@ -3,7 +3,8 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:register_covid19app/location.dart';
+import 'package:location/location.dart';
+
 
 class MyLocation extends StatelessWidget {
   @override
@@ -40,7 +41,7 @@ class _MapsState extends State<Maps> {
   );
 
   Future<Uint8List> getMarker() async {
-    ByteData byteData = await DefaultAssetBundle.of(context).load("assets/car_icon.png");
+    ByteData byteData = await DefaultAssetBundle.of(context).load("assets/images/car_icon.png");
     return byteData.buffer.asUint8List();
   }
 
