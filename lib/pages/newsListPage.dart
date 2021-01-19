@@ -30,6 +30,7 @@ class _NewsListPageState extends State<NewsListPage> {
             builder: (context) => NewsArticleDetailsPage(article: article)));
   }
 
+  // ignore: missing_return
   Widget _buildList(BuildContext context, NewsArticleListViewModel vm) {
     switch (vm.loadingStatus) {
       case LoadingStatus.searching:
