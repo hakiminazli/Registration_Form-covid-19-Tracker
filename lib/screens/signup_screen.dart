@@ -17,6 +17,7 @@ class _SignupScreenState extends State<SignupScreen> {
   TextEditingController _passwordController = new TextEditingController();
 
   Map<String, String> _authData = {
+    'name' : '',
     'email' : '',
     'password' : ''
   };
@@ -50,6 +51,7 @@ class _SignupScreenState extends State<SignupScreen> {
 
     try{
       await Provider.of<Authentication>(context, listen: false).signUp(
+          _authData['name'],
           _authData['email'],
           _authData['password']
       );
@@ -99,12 +101,13 @@ class _SignupScreenState extends State<SignupScreen> {
             ),
           ),
           Center(
+
             child: Card(
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10.0),
               ),
               child: Container(
-                height: 300,
+                height: 350,
                 width: 300,
                 padding: EdgeInsets.all(16),
                 child: Form(
@@ -112,6 +115,15 @@ class _SignupScreenState extends State<SignupScreen> {
                   child: SingleChildScrollView(
                     child: Column(
                       children: <Widget>[
+                        TextFormField(
+                          decoration: InputDecoration(labelText: 'Full Name'),
+                          keyboardType: TextInputType.emailAddress,
+
+                          onSaved: (value)
+                          {
+                            _authData['name'] = value;
+                          },
+                        ),
                         //email
                         TextFormField(
                           decoration: InputDecoration(labelText: 'Email'),

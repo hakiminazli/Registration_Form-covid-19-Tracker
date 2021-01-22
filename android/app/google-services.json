@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "934921319698",
+    "firebase_url": "https://signup-45d8e.firebaseio.com",
+    "project_id": "signup-45d8e",
+    "storage_bucket": "signup-45d8e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:934921319698:android:cc43f3d0270aff2ddcafcb",
+        "android_client_info": {
+          "package_name": "com.hakiminazli.register_covid19app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "934921319698-gdlthrlbkaf3ahid7md2l8h030nuj9l7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFXFXp0V7Cj5ghpaJWlznpJhEnUpefYfY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "934921319698-gdlthrlbkaf3ahid7md2l8h030nuj9l7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
