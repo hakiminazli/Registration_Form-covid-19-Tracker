@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:register_covid19app/home.dart';
-import 'home.dart';
+//import 'package:register_covid19app/home.dart';
+import 'package:register_covid19app/screens/loginsignup.dart';
+//import 'home.dart';
 import 'screens/login_screen.dart';
 import 'screens/signup_screen.dart';
 import 'models/authentication.dart';
@@ -23,12 +24,12 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primaryColor: Colors.blue[800],
         ),
-        home: SignupScreen(),
+        home: Login(),
         
         routes: {
           SignupScreen.routeName: (ctx) => SignupScreen(),
           LoginScreen.routeName: (ctx) => LoginScreen(),
-          Home.routeName: (ctx) => Home(),
+          //Home.routeName: (ctx) => Home(signOut),
 
 
 
