@@ -314,7 +314,7 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
-  String name, email, mobile, password;
+  String name, ic, email, mobile, password;
   final _key = new GlobalKey<FormState>();
 
   bool _secureText = true;
@@ -339,6 +339,7 @@ class _RegisterState extends State<Register> {
         body: {
           "flag": 2.toString(),
           "name": name,
+          "ic" : ic,
           "email": email,
           "mobile": mobile,
           "password": password,
@@ -433,6 +434,33 @@ class _RegisterState extends State<Register> {
                               ),
                               contentPadding: EdgeInsets.all(18),
                               labelText: "Fullname"),
+                        ),
+                      ),
+
+                      Card(
+                        elevation: 6.0,
+                        child: TextFormField(
+                          // ignore: missing_return
+                          validator: (e) {
+                            if (e.isEmpty) {
+                              return "Please insert your IC Number";
+                            }
+                          },
+                          onSaved: (e) => ic = e,
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w300,
+                          ),
+                          decoration: InputDecoration(
+                            prefixIcon: Padding(
+                              padding: EdgeInsets.only(left: 20, right: 15),
+                              child: Icon(Icons.card_membership, color: Colors.black),
+                            ),
+                            contentPadding: EdgeInsets.all(18),
+                            labelText: "IC Number",
+                          ),
+                          keyboardType: TextInputType.number,
                         ),
                       ),
 

@@ -128,7 +128,7 @@ class ControlCenter extends StatelessWidget {
                           builder: (_) => NewsArticleListViewModel(), child: NewsListPage());
                       break;
                     case 1:
-                      return Travel();
+                      return Location();
                       break;
                     case 2:
                       return CheckUp();

@@ -28,8 +28,9 @@ class _HomeState extends State<Home> {
     //combined into one code
     MainPage(),
     UserPage(),
-    PowerPage(),
-    SettingPage()
+    SettingPage(),
+   // PowerPage(),
+
   ];
   @override
   Widget build(BuildContext context) {
@@ -72,10 +73,10 @@ class _HomeState extends State<Home> {
               icon: FaIcon(FontAwesomeIcons.userFriends),
               label: 'User',
             ),
-            BottomNavigationBarItem(
+           /* BottomNavigationBarItem(
               icon: FaIcon(FontAwesomeIcons.bell),
               label: 'Menu',
-            ),
+            ),*/
             BottomNavigationBarItem(
               icon: FaIcon(FontAwesomeIcons.cog),
               label: 'Setting',
